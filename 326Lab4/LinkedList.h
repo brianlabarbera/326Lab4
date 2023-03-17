@@ -10,8 +10,10 @@ public:
 	int SortedGetLength();
 	bool SortedFind(int k, int& x);
 	int SortedSearch(int key);
+	void SortedInsertD(int x);
 	void SortedInsert(int x);
 	void SortedDelete(int k, int& x, bool& success);
+	void printAll();
 
 private:
 	struct Node {
@@ -21,7 +23,7 @@ private:
 	};
 	Node* head;
 	int size;
-
+	Node* GetK(int k);
 };
 
 #endif

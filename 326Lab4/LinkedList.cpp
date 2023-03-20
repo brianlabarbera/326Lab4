@@ -26,16 +26,16 @@ void LinkedList::printAll() {
 
 	temp = head;
 
+	std::cout << std::endl;
+
 	while (temp) {
-		if (temp->Next == NULL) {
-			std::cout << temp->Data << std::endl;
-		}
-		else {
-			std::cout << temp->Data << std::endl;
-		}
+		
+		std::cout << temp->Data << std::endl;
+
 		temp = temp->Next;
 	}
 
+	std::cout << std::endl;
 
 }
 
@@ -79,6 +79,18 @@ bool LinkedList::SortedFind(int k, int& x) {
 
 	Node* temp = GetK(k);
 
+	if (temp) {
+
+		x = temp->Data;
+
+		return true;
+	}
+
+	else {
+		return false;
+	}
+
+
 }
 
 
@@ -86,9 +98,7 @@ int LinkedList::SortedSearch(int key) {
 
 	Node* temp = head;
 
-	for (int i = 1; temp; i++) {
-
-		temp = temp->Next;
+	for (int i = 0; temp; i++) {
 
 		if (!temp) {
 			return 0;
@@ -98,7 +108,11 @@ int LinkedList::SortedSearch(int key) {
 			return i;
 		}
 
+		temp = temp->Next;
+
 	}
+
+	std::cout << std::endl;
 
 }
 
@@ -127,11 +141,12 @@ void LinkedList::SortedInsertD(int x) {
 
 		temp = temp->Next;
 
-		if (temp && temp->Data == x) {
-			return;
-		}
-
 	}
+
+	if (temp->Next && temp->Next->Data == x) {
+		return;
+	}
+
 
 	newNode->Next = temp->Next;
 	temp->Next = newNode;
@@ -196,8 +211,10 @@ void LinkedList::SortedDelete(int k, int& x, bool& success) {
 
 					if (prev == NULL) {
 						break;
-						temp = temp->Next;
 					}
+
+					temp = temp->Next;
+
 				}
 
 
